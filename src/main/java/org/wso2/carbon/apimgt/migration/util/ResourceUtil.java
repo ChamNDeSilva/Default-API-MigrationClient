@@ -105,7 +105,7 @@ public class ResourceUtil {
 
                 handlersElement.appendChild(corsHandlerNode);
                 corsHandlerNode.appendChild(corsHandlerProperty);
-                corsHandlerNode.removeAttribute(Constants.XML_NAMESPACE_ATTRIBUTE);
+
             }
         }
     }
