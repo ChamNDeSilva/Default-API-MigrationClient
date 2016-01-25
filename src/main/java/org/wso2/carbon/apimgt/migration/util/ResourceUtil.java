@@ -79,32 +79,34 @@ public class ResourceUtil {
         Element handlersElement = (Element) document.getElementsByTagNameNS(Constants.SYNAPSE_API_XMLNS,
                 Constants.SYNAPSE_API_ELEMENT_HANDLERS).item(0);
 
-        NodeList handlerNodes = handlersElement.getElementsByTagName(Constants.SYNAPSE_API_ELEMENT_HANDLER);
-        boolean corsHandlerExists = false;
+        if(handlersElement != null) {
+            NodeList handlerNodes = handlersElement.getElementsByTagName(Constants.SYNAPSE_API_ELEMENT_HANDLER);
+            boolean corsHandlerExists = false;
 
-        for (int i = 0; i < handlerNodes.getLength(); ++i) {
-            Element handler = (Element) handlerNodes.item(i);
-            String className = handler.getAttribute(Constants.SYNAPSE_API_ATTRIBUTE_CLASS);
+            for (int i = 0; i < handlerNodes.getLength(); ++i) {
+                Element handler = (Element) handlerNodes.item(i);
+                String className = handler.getAttribute(Constants.SYNAPSE_API_ATTRIBUTE_CLASS);
 
-            if (className.equals(Constants.SYNAPSE_API_VALUE_CORS_HANDLER)) {
-                corsHandlerExists = true;
-                break;
+                if (className.equals(Constants.SYNAPSE_API_VALUE_CORS_HANDLER)) {
+                    corsHandlerExists = true;
+                    break;
+                }
             }
-        }
-        if(!corsHandlerExists) {
-            Element corsHandlerNode = document.createElement(Constants.SYNAPSE_API_ELEMENT_HANDLER);
-            Element corsHandlerProperty = document.createElement(Constants.SYNAPSE_API_ELEMENT_PROPERTY);
+            if(!corsHandlerExists) {
+                Element corsHandlerNode = document.createElement(Constants.SYNAPSE_API_ELEMENT_HANDLER);
+                Element corsHandlerProperty = document.createElement(Constants.SYNAPSE_API_ELEMENT_PROPERTY);
 
-            corsHandlerNode.setAttribute(Constants.SYNAPSE_API_ATTRIBUTE_CLASS,
-                    Constants.SYNAPSE_API_VALUE_CORS_HANDLER);
-            corsHandlerProperty.setAttribute(Constants.SYNAPSE_API_ATTRIBUTE_NAME,
-                    Constants.SYNAPSE_API_CORS_HANDLER_NAME);
-            corsHandlerProperty.setAttribute(Constants.SYNAPSE_API_ATTRIBUTE_VALUE,
-                    Constants.SYNAPSE_API_CORS_HANDLER_VALUE);
+                corsHandlerNode.setAttribute(Constants.SYNAPSE_API_ATTRIBUTE_CLASS,
+                        Constants.SYNAPSE_API_VALUE_CORS_HANDLER);
+                corsHandlerProperty.setAttribute(Constants.SYNAPSE_API_ATTRIBUTE_NAME,
+                        Constants.SYNAPSE_API_CORS_HANDLER_NAME);
+                corsHandlerProperty.setAttribute(Constants.SYNAPSE_API_ATTRIBUTE_VALUE,
+                        Constants.SYNAPSE_API_CORS_HANDLER_VALUE);
 
-            handlersElement.appendChild(corsHandlerNode);
-            corsHandlerNode.appendChild(corsHandlerProperty);
-            corsHandlerNode.removeAttribute(Constants.XML_NAMESPACE_ATTRIBUTE);
+                handlersElement.appendChild(corsHandlerNode);
+                corsHandlerNode.appendChild(corsHandlerProperty);
+                corsHandlerNode.removeAttribute(Constants.XML_NAMESPACE_ATTRIBUTE);
+            }
         }
     }
 }
