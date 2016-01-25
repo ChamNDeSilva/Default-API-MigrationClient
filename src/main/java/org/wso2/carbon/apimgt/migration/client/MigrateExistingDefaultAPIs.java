@@ -155,6 +155,5 @@ public class MigrateExistingDefaultAPIs implements MigrationClient {
             log.debug("End synapseAPIMigration for tenant " + tenant.getId() + "(" + tenant.getDomain() + ")");
         }
     }
-
 }
 

@@ -81,4 +81,5 @@ public class ServiceHolder {
     public static void setTenantRegLoader(TenantRegistryLoader service) {
         tenantRegLoader = service;
     }
+
 }

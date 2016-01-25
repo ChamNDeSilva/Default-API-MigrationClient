@@ -37,6 +37,7 @@ public class Constants {
     public static final String SYNAPSE_API_CORS_HANDLER_NAME = "apiImplementationType";
     public static final String SYNAPSE_API_CORS_HANDLER_VALUE = "ENDPOINT";
     public static final String XML_NAMESPACE_ATTRIBUTE = "xmlns";
+
     public static final String SYNAPSE_API_VALUE_CORS_HANDLER =
             "org.wso2.carbon.apimgt.gateway.handlers.security.CORSRequestHandler";
 

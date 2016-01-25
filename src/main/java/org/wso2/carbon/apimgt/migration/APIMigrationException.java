@@ -24,5 +24,4 @@ public class APIMigrationException extends Exception {
     public APIMigrationException(String msg, Throwable e) {
         super(msg, e);
     }
-
 }

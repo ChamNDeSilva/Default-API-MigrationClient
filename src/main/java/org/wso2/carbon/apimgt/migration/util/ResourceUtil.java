@@ -71,8 +71,8 @@ public class ResourceUtil {
     /**
      * To update synapse API with CORSHandler
      *
-     * @param document       XML document object
-     * @param file       synapse file
+     * @param document  XML document object
+     * @param file   synapse file
      * @throws APIMigrationException
      */
     private static void updateHandlers(Document document, File file) throws APIMigrationException {
@@ -83,9 +83,7 @@ public class ResourceUtil {
         boolean corsHandlerExists = false;
 
         for (int i = 0; i < handlerNodes.getLength(); ++i) {
-
             Element handler = (Element) handlerNodes.item(i);
-
             String className = handler.getAttribute(Constants.SYNAPSE_API_ATTRIBUTE_CLASS);
 
             if (className.equals(Constants.SYNAPSE_API_VALUE_CORS_HANDLER)) {
@@ -108,7 +106,5 @@ public class ResourceUtil {
             corsHandlerNode.appendChild(corsHandlerProperty);
             corsHandlerNode.removeAttribute(Constants.XML_NAMESPACE_ATTRIBUTE);
         }
-
     }
-
 }
